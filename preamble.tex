@@ -1,0 +1,100 @@
+\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage{array}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage[framemethod=tikz]{mdframed}
+\usetikzlibrary{shadows}
+\usepackage{graphicx}
+\usepackage{hyperref}[colorlinks=true]
+\usepackage{geometry}[margin=0.5in]
+\usepackage{polynom}
+\sethlcolor{yellow}
+\setmainfont{Times New Roman}
+
+\setlength{\parindent}{0cm}
+
+\definecolor{darkgreen}{RGB}{39, 145, 45}
+
+\newcounter{question}[section]
+\renewcommand{\thequestion}{\thesection .\arabic{question}.}
+\newcommand{\question}[1]{\par\stepcounter{question}\hl{\bf\thequestion} \quad #1 \par}
+
+\newcounter{subquestion}[question]
+\renewcommand{\thesubquestion}{\alph{subquestion}}
+\newcommand{\subquestion}[1]{\stepcounter{subquestion}\textbf{(\thesubquestion)}\space \emph{#1}\par}
+
+\newcommand{\substep}[1]{{\par\large\em\textbf{\rightarrow}\space #1 \par}\vspace{0.1cm}}
+
+\newcommand{\solnstitle}{\vspace{0.2cm}
+{\bf\large\centering\color{red} \thequestion\space Solutions \par}}
+\newenvironment{solnstable}{
+    \begin{table}[H]
+        \renewcommand{\arraystretch}{1.5}
+        \color{red}
+        \begin{tabular}{l|m{4cm}}
+}{
+        \end{tabular}
+    \end{table}
+}
+\newenvironment{solns}{
+    \solnstitle
+    
+}{
+        
+}
+\newcounter{step}[subquestion]
+\renewcommand{\thestep}{Step \Roman{step}}
+\newcommand{\step}[1]{\par\vspace{0.1cm}{\centering\bf \stepcounter{step}\thestep :\space#1 \par}}
+
+\newenvironment{answer}{}{}
+\surroundwithmdframed[
+    linewidth=1pt,
+    linecolor=red,
+    frametitle={\color{red}Final Answer}, 
+    frametitlealignment=\centering
+]{answer}
+
+\newenvironment{knowledge}{
+    \begin{enumerate}
+}{
+    \end{enumerate}
+}
+\surroundwithmdframed[
+    linewidth=1pt,
+    linecolor=darkgreen,
+    frametitle={\color{darkgreen}Required Knwoledge}, 
+    frametitlealignment=\centering
+]{knowledge}
+
+\newenvironment{checkanswer}{}{
+    \par\checkmark\space The solution has been verified and is correct.
+}
+\surroundwithmdframed[
+    linecolor=orange,
+    linewidth=3pt,
+    roundcorner=10pt,
+    frametitle={Checking Your Answer},
+    frametitlealignment=\centering,
+    shadow=true,
+    shadowcolor=yellow
+]{checkanswer}
+
+\newcommand{\TRUE}{\textbf{\sffamily\textcolor{darkgreen}{TRUE}\space}}
+\newcommand{\FALSE}{\textbf{\sffamily\textcolor{red}{FALSE}\space}}
+
+% \newcommand{\checkmark}{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+
+\catcode`?=11 % Some commands use question marks in their names
+\newcommand{\geq?}{\stackrel{?}{\geq}}
+
+\newmdenv[
+    linewidth=5pt,
+    linecolor=red,
+    frametitle={\Huge Disclaimer},
+    frametitlealignment=\centering,
+    backgroundcolor=red!10
+]{disclaimer}

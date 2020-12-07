@@ -1,0 +1,6 @@
+\contentsline {section}{\numberline {1}Remainder Theorem}{1}{section.1}%
+\contentsline {section}{\numberline {2}Polynomial Rules}{2}{section.2}%
+\contentsline {section}{\numberline {3}Sequences and series}{10}{section.3}%
+\contentsline {section}{\numberline {4}Mathematical Induction}{12}{section.4}%
+\contentsline {section}{\numberline {5}Quadratic Functions}{15}{section.5}%
+\contentsline {section}{\numberline {6}Linear Inequalities}{20}{section.6}%
